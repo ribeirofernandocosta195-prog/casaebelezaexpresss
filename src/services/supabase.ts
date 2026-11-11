@@ -19,7 +19,7 @@ export const supabase: SupabaseClient = isSupabaseConfigured
  */
 export async function uploadImageToStorage(
   file: File,
-  bucket: 'products' | 'banners' = 'products'
+  bucket: 'products' | 'product-images' | 'banners' = 'products'
 ): Promise<{ url: string | null; error: string | null }> {
   if (!isSupabaseConfigured || !supabase) {
     return {
@@ -33,15 +33,29 @@ export async function uploadImageToStorage(
     const fileName = `${Math.random().toString(36).substring(2, 15)}_${Date.now()}.${fileExt}`;
     const filePath = `${fileName}`;
 
-    const { error: uploadError } = await supabase.storage
-      .from(bucket)
+    // Try primary bucket, fallback to alternative if products/product-images
+    let targetBucket = bucket;
+    let { error: uploadError } = await supabase.storage
+      .from(targetBucket)
       .upload(filePath, file);
+
+    if (uploadError && (bucket === 'products' || bucket === 'product-images')) {
+      const fallbackBucket = bucket === 'products' ? 'product-images' : 'products';
+      const fallbackAttempt = await supabase.storage
+        .from(fallbackBucket)
+        .upload(filePath, file);
+
+      if (!fallbackAttempt.error) {
+        uploadError = null;
+        targetBucket = fallbackBucket;
+      }
+    }
 
     if (uploadError) {
       return { url: null, error: uploadError.message };
     }
 
-    const { data } = supabase.storage.from(bucket).getPublicUrl(filePath);
+    const { data } = supabase.storage.from(targetBucket).getPublicUrl(filePath);
     return { url: data.publicUrl, error: null };
   } catch (err: any) {
     return { url: null, error: err.message || 'Falha no upload da imagem.' };
