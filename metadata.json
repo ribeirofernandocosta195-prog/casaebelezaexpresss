@@ -1,0 +1,6 @@
+{
+  "name": "Casa & Beleza Express",
+  "description": "E-commerce completo e sofisticado de Casa, Decoração e Beleza com pagamentos Pix via Nexum Pay, painel administrativo privado e Supabase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

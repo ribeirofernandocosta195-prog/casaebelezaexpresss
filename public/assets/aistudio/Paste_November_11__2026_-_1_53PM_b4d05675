@@ -1,0 +1,1526 @@
+# CASA & BELEZA EXPRESS
+## DESENVOLVIMENTO COMPLETO DE E-COMMERCE — GOOGLE AI STUDIO
+
+Você é uma equipe completa de desenvolvimento de software, composta por engenheiros full-stack sêniores, arquitetos de software, especialistas em React, TypeScript, Supabase, PostgreSQL, segurança, pagamentos, UX/UI, SEO e infraestrutura em nuvem.
+
+Sua missão é desenvolver uma aplicação completa, profissional e funcional chamada **Casa & Beleza Express**.
+
+O resultado deverá ser uma loja virtual real, pronta para receber clientes, cadastrar produtos, processar pedidos, gerar cobranças Pix pela Nexum Pay e permitir gerenciamento completo por um painel administrativo privado.
+
+IMPORTANTE: Todas as informações necessárias para desenvolver o projeto estão neste documento. Não dependa de arquivos ZIP, projetos externos, códigos anteriores ou documentação que não esteja reproduzida aqui.
+
+Não entregue somente uma interface visual. Desenvolva a aplicação completa, com frontend, backend, banco de dados, autenticação, permissões, integrações e segurança.
+
+---
+
+# 1. ARQUITETURA E TECNOLOGIAS
+
+Utilizar obrigatoriamente:
+
+- React 19 ou versão estável compatível.
+- TypeScript.
+- Vite.
+- Tailwind CSS.
+- Lucide React para ícones.
+- Supabase Database (PostgreSQL).
+- Supabase Authentication.
+- Supabase Storage.
+- Supabase Edge Functions.
+- API REST Nexum Pay.
+- GitHub.
+- Vercel.
+
+A arquitetura deverá ser organizada em:
+
+- Componentes.
+- Páginas.
+- Contextos.
+- Hooks.
+- Serviços.
+- Utilitários.
+- Tipagens.
+- Migrations SQL.
+- Políticas RLS.
+- Edge Functions.
+- Configurações.
+- Testes.
+
+**SUPABASE É OBRIGATÓRIO.**
+
+Não utilizar Firebase, Firestore ou Firebase Storage.
+
+Não criar um projeto que utilize Firebase parcialmente e Supabase parcialmente.
+
+Todo o armazenamento, autenticação e gerenciamento de dados deverão utilizar Supabase.
+
+Utilizar a biblioteca oficial @supabase/supabase-js.
+
+O frontend poderá acessar somente operações autorizadas pelas políticas RLS.
+
+Operações privilegiadas deverão ocorrer no backend.
+
+Não expor SUPABASE_SERVICE_ROLE_KEY no navegador.
+
+---
+
+# 2. IDENTIDADE VISUAL — CASA & BELEZA EXPRESS
+
+Desenvolver uma identidade visual sofisticada, elegante, comercial e feminina.
+
+A loja deverá transmitir confiança, organização, delicadeza e profissionalismo.
+
+## Paleta de cores
+
+- Rosa principal: #E6007A.
+- Rosa escuro: #D0006E.
+- Rosa suave: #FFF0F6.
+- Branco: #FFFFFF.
+- Fundo: #FCFCFD.
+- Cinza claro: #F5F5F7.
+- Texto: #27272A.
+- Tons neutros complementares.
+
+## Tipografia
+
+Utilizar:
+
+- Plus Jakarta Sans para textos, navegação, informações e interface.
+- Playfair Display para detalhes editoriais e títulos especiais.
+
+## Características visuais
+
+- Cabeçalho elegante.
+- Barra promocional superior.
+- Menu de navegação organizado.
+- Cards de produtos sofisticados.
+- Imagens com boa proporção.
+- Botões com estados de interação.
+- Animações sutis.
+- Bordas suaves.
+- Sombras discretas.
+- Espaçamento equilibrado.
+- Ícones consistentes.
+
+Evitar aparência de template genérico.
+
+A loja deve parecer um e-commerce comercial desenvolvido profissionalmente.
+
+---
+
+# 3. RESPONSIVIDADE COMPLETA
+
+Desenvolver experiência adaptada a:
+
+- Computadores.
+- Notebooks.
+- Tablets.
+- Smartphones Android.
+- iPhones.
+- Diferentes resoluções e orientações.
+
+Testar:
+
+360px, 375px, 390px, 430px, 768px, 1024px, 1366px e 1920px.
+
+No celular:
+
+- Menu compacto.
+- Navegação intuitiva.
+- Carrinho adaptado.
+- Cards ajustados.
+- Imagens proporcionais.
+- Botões acessíveis.
+- Formulários adequados.
+- Rodapé organizado.
+- Sem rolagem horizontal indevida.
+
+Não simplesmente reduzir a versão desktop. Criar adaptações específicas para dispositivos móveis.
+
+---
+
+# 4. ESTRUTURA DA LOJA
+
+Criar as seguintes páginas:
+
+1. Página inicial.
+2. Catálogo.
+3. Categorias.
+4. Detalhes do produto.
+5. Pesquisa.
+6. Favoritos.
+7. Carrinho.
+8. Checkout.
+9. Pagamento Pix.
+10. Pagamento confirmado.
+11. Minha conta.
+12. Acompanhar pedido.
+13. Contato.
+14. Sobre nós.
+15. Como comprar.
+16. Compra garantida.
+17. Entrega e frete.
+18. Trocas e devoluções.
+19. Política de privacidade.
+20. Termos de uso.
+21. Perguntas frequentes.
+22. Painel administrativo.
+
+Implementar rotas reais, URLs organizadas e navegação funcional.
+
+Utilizar URLs amigáveis, preferencialmente com slugs.
+
+---
+
+# 5. CABEÇALHO E NAVEGAÇÃO
+
+Criar cabeçalho contendo:
+
+- Logotipo Casa & Beleza Express.
+- Barra promocional.
+- Campo de pesquisa.
+- Menu de categorias.
+- Botão de favoritos.
+- Minha conta.
+- Carrinho com quantidade de itens.
+- Menu mobile.
+
+Implementar pesquisa funcional por:
+
+- Nome.
+- Descrição.
+- Marca.
+- Categoria.
+
+Exibir sugestões de produtos durante a digitação.
+
+Criar menu de categorias com navegação funcional.
+
+O painel administrativo não deverá aparecer no cabeçalho público.
+
+---
+
+# 6. PÁGINA INICIAL
+
+Desenvolver página inicial completa com:
+
+1. Banner principal.
+2. Categorias em destaque.
+3. Produtos mais vendidos.
+4. Novidades.
+5. Ofertas especiais.
+6. Produtos em destaque.
+7. Banner de beleza.
+8. Banner de casa e utilidades.
+9. Benefícios da loja.
+10. Informações de entrega.
+11. Atendimento pelo WhatsApp.
+12. Rodapé institucional.
+
+Todos os produtos apresentados deverão ser carregados do Supabase.
+
+Não utilizar produtos fictícios como se fossem produtos disponíveis para compra.
+
+Quando o banco estiver vazio, apresentar um estado vazio elegante e instruções para cadastrar produtos no painel.
+
+---
+
+# 7. PRODUTOS — CADASTRO COM SEIS CAMPOS DE IMAGEM
+
+Esta funcionalidade é obrigatória.
+
+No painel administrativo, criar formulário completo de cadastro e edição de produtos.
+
+O formulário deverá possuir EXATAMENTE SEIS CAMPOS DISTINTOS PARA URLs DE IMAGENS.
+
+Identificar assim:
+
+- Imagem 1 — URL principal.
+- Imagem 2 — URL adicional.
+- Imagem 3 — URL adicional.
+- Imagem 4 — URL adicional.
+- Imagem 5 — URL adicional.
+- Imagem 6 — URL adicional.
+
+Cada campo deverá receber uma URL independente.
+
+Permitir cadastrar somente uma imagem ou preencher todas as seis.
+
+Não exigir que todos os campos sejam preenchidos.
+
+Implementar:
+
+- Pré-visualização individual.
+- Validação de URL.
+- Opção de substituir.
+- Opção de remover.
+- Identificação da imagem principal.
+- Tratamento de links inválidos.
+
+Persistir os endereços no Supabase.
+
+Também permitir upload de imagens para o Supabase Storage, se o administrador preferir.
+
+O sistema deverá permitir utilizar URLs externas ou imagens armazenadas no Storage.
+
+Na página do produto:
+
+- Imagem principal em destaque.
+- Galeria com miniaturas.
+- Troca de imagem ao clicar.
+- Ampliação da imagem.
+- Navegação entre imagens.
+- Layout adaptado para celular.
+
+Não exibir espaços vazios para imagens não cadastradas.
+
+## Campos dos produtos
+
+- Nome.
+- Slug.
+- SKU.
+- Descrição.
+- Descrição curta.
+- Categoria.
+- Subcategoria.
+- Marca.
+- Preço.
+- Preço promocional.
+- Estoque.
+- Peso.
+- Dimensões.
+- Seis URLs de imagens.
+- Variações.
+- Status ativo/inativo.
+- Produto em destaque.
+- Produto em promoção.
+- Frete grátis.
+- Data de cadastro.
+- Data de atualização.
+
+Implementar cadastro, edição, duplicação, exclusão e gerenciamento de estoque.
+
+---
+
+# 8. TRÊS BANNERS INDEPENDENTES
+
+Criar três banners distintos.
+
+Cada banner deverá possuir gerenciamento independente no painel.
+
+## Banner 1 — Principal
+
+Localização: destaque principal da página inicial.
+
+Campos:
+
+- Imagem.
+- Título.
+- Subtítulo.
+- Texto do botão.
+- URL de destino.
+- Status.
+- Ordem de exibição.
+
+## Banner 2 — Beleza
+
+Localização: seção de beleza e cuidados pessoais.
+
+Campos:
+
+- Imagem.
+- Título.
+- Subtítulo.
+- Texto do botão.
+- URL de destino.
+- Status.
+- Ordem de exibição.
+
+## Banner 3 — Casa
+
+Localização: seção de casa, decoração e utilidades.
+
+Campos:
+
+- Imagem.
+- Título.
+- Subtítulo.
+- Texto do botão.
+- URL de destino.
+- Status.
+- Ordem de exibição.
+
+Os banners deverão ser independentes.
+
+Permitir alterar, substituir, ativar, desativar e excluir cada banner.
+
+Permitir pré-visualização antes de salvar.
+
+Não obrigar os três banners a utilizarem imagens iguais.
+
+Implementar proporções específicas para desktop e mobile.
+
+---
+
+# 9. CATEGORIAS
+
+Criar gerenciamento completo de categorias.
+
+Cada categoria deverá possuir:
+
+- Nome.
+- Slug.
+- Descrição.
+- Imagem.
+- Status.
+- Ordem de exibição.
+
+Permitir criar, editar e excluir categorias.
+
+Criar categorias iniciais sugeridas:
+
+- Beleza.
+- Maquiagem.
+- Cabelos.
+- Cuidados pessoais.
+- Casa.
+- Decoração.
+- Organização.
+- Utilidades domésticas.
+
+Essas categorias deverão ser editáveis.
+
+---
+
+# 10. CARRINHO
+
+Implementar carrinho completo.
+
+Funcionalidades:
+
+- Adicionar produto.
+- Remover produto.
+- Alterar quantidade.
+- Selecionar variações.
+- Calcular subtotal.
+- Aplicar cupom.
+- Calcular frete.
+- Calcular desconto.
+- Calcular total.
+- Persistir carrinho.
+- Atualizar quantidade no cabeçalho.
+
+Não permitir comprar produtos inativos.
+
+Não permitir quantidade superior ao estoque disponível.
+
+O backend deverá recalcular os valores antes de criar o pedido.
+
+Não confiar nos valores enviados pelo navegador.
+
+---
+
+# 11. CHECKOUT
+
+Criar checkout profissional.
+
+Solicitar:
+
+- Nome completo.
+- E-mail.
+- CPF.
+- Telefone.
+- CEP.
+- Rua.
+- Número.
+- Complemento.
+- Bairro.
+- Cidade.
+- Estado.
+
+Implementar máscaras e validações brasileiras.
+
+Validar CPF.
+
+Permitir consulta de CEP por serviço externo apropriado, com tratamento de falhas.
+
+Exibir resumo:
+
+- Produtos.
+- Quantidades.
+- Subtotal.
+- Descontos.
+- Frete.
+- Total.
+
+A forma de pagamento será Pix pela Nexum Pay.
+
+O pedido deverá ser criado pelo backend.
+
+O backend deverá consultar os produtos e calcular novamente:
+
+- Preços.
+- Descontos.
+- Estoque.
+- Frete.
+- Total.
+
+Nunca aceitar o valor total enviado pelo frontend como valor definitivo.
+
+---
+
+# 12. SUPABASE — BANCO DE DADOS
+
+Criar migrations SQL completas.
+
+Criar as tabelas:
+
+profiles
+admin_users
+products
+categories
+banners
+orders
+order_items
+customers
+store_settings
+payment_settings
+payment_transactions
+payment_webhook_events
+coupons
+reviews
+contact_messages
+newsletter_subscribers
+shipping_settings
+stock_reservations
+
+Criar relacionamentos e índices.
+
+Utilizar UUID.
+
+Utilizar timestamps com timezone.
+
+Criar constraints para impedir:
+
+- Preços negativos.
+- Quantidades negativas.
+- Estoque negativo.
+- Pedidos sem identificação.
+- Transações duplicadas.
+- Valores inconsistentes.
+
+## Row Level Security
+
+Ativar RLS em todas as tabelas protegidas.
+
+Regras:
+
+- Visitantes podem consultar produtos ativos.
+- Visitantes podem consultar categorias públicas.
+- Visitantes podem consultar banners ativos.
+- Clientes só podem consultar seus próprios pedidos.
+- Clientes não podem alterar valores de pedidos.
+- Clientes não podem modificar estoque.
+- Clientes não podem aprovar pagamentos.
+- Clientes não podem acessar configurações financeiras.
+- Clientes não podem consultar credenciais.
+- Somente administradores autorizados podem gerenciar a loja.
+
+Criar funções SQL seguras para operações críticas.
+
+Nunca permitir que o usuário altere seu próprio nível de permissão.
+
+---
+
+# 13. AUTENTICAÇÃO E ADMINISTRADORES
+
+Utilizar Supabase Authentication.
+
+Implementar:
+
+- Cadastro de clientes.
+- Login.
+- Logout.
+- Recuperação de senha.
+- Verificação de e-mail.
+- Sessão persistente.
+- Minha conta.
+
+## Painel administrativo privado
+
+O painel deverá utilizar a rota:
+
+/admin
+
+Não exibir links para o painel no site público.
+
+Não exibir botão administrativo no cabeçalho.
+
+Não exibir botão administrativo no rodapé.
+
+Não divulgar o acesso administrativo para clientes.
+
+Somente usuários previamente autorizados poderão entrar.
+
+Criar uma tabela de administradores com permissões protegidas.
+
+Implementar cadastro e remoção de administradores pelo administrador principal.
+
+O administrador autorizado poderá cadastrar outros administradores diretamente no painel.
+
+Não utilizar e-mail fixo codificado no frontend.
+
+Não permitir que o cadastro público crie administradores.
+
+A autorização deverá ser validada no backend, usando a identidade autenticada do Supabase.
+
+O painel deverá ter:
+
+- Dashboard.
+- Produtos.
+- Categorias.
+- Pedidos.
+- Clientes.
+- Banners.
+- Avaliações.
+- Cupons.
+- Configurações.
+- Pagamentos.
+- Administradores.
+
+Acesso negado para usuários não autorizados, mesmo quando tentarem abrir diretamente /admin.
+
+---
+
+# 14. DASHBOARD ADMINISTRATIVO
+
+Exibir informações reais:
+
+- Faturamento.
+- Vendas.
+- Pedidos.
+- Pedidos pendentes.
+- Pedidos pagos.
+- Pedidos cancelados.
+- Pedidos enviados.
+- Clientes.
+- Produtos cadastrados.
+- Produtos ativos.
+- Produtos sem estoque.
+- Produtos mais vendidos.
+
+Criar gráficos por período.
+
+Criar filtros de data.
+
+Permitir exportação CSV de pedidos.
+
+Não utilizar números simulados.
+
+O faturamento deverá considerar somente pagamentos realmente confirmados, com tratamento adequado de reembolsos.
+
+---
+
+# 15. GERENCIAMENTO DE PEDIDOS
+
+Permitir visualizar:
+
+- Número do pedido.
+- Cliente.
+- E-mail.
+- Telefone.
+- Produtos.
+- Quantidades.
+- Endereço.
+- Subtotal.
+- Frete.
+- Desconto.
+- Total.
+- Transação Pix.
+- Status financeiro.
+- Status logístico.
+- Data de criação.
+- Data de pagamento.
+
+Separar dois campos:
+
+STATUS FINANCEIRO:
+- Aguardando pagamento.
+- Pago.
+- Falhou.
+- Cancelado.
+- Expirado.
+- Reembolsado.
+
+STATUS LOGÍSTICO:
+- Aguardando separação.
+- Em preparação.
+- Enviado.
+- Em trânsito.
+- Entregue.
+- Cancelado.
+
+A alteração do status logístico nunca poderá aprovar o pagamento.
+
+Implementar histórico das alterações.
+
+Permitir inserir código de rastreamento.
+
+---
+
+# 16. CONFIGURAÇÕES DA LOJA
+
+Criar gerenciamento de:
+
+- Nome da loja.
+- Logotipo.
+- E-mail.
+- WhatsApp.
+- Telefone.
+- CNPJ.
+- Endereço comercial.
+- Instagram.
+- Facebook.
+- Outras redes sociais.
+- Textos institucionais.
+- Informações de entrega.
+- Configurações de frete.
+- Mensagens promocionais.
+
+As alterações deverão aparecer automaticamente no site público.
+
+---
+
+# 17. INTEGRAÇÃO NEXUM PAY
+
+Implementar integração real.
+
+URL BASE:
+
+https://nexumpay.squareweb.app
+
+A autenticação utiliza:
+
+X-API-Chat-Id: CHAT_ID
+
+X-API-Credential: CREDENCIAL_FIXA
+
+As credenciais deverão existir exclusivamente no backend.
+
+## Configuração administrativa
+
+Criar:
+
+Configurações → Pagamentos → Nexum Pay.
+
+Campos:
+
+- Chat ID.
+- Credencial fixa.
+- Token secreto do webhook.
+- Ativar integração.
+- Desativar integração.
+- Testar conexão.
+- Salvar.
+
+Permitir substituição das credenciais.
+
+Após salvar, não exibir os valores secretos novamente.
+
+Mostrar somente que existe uma credencial cadastrada.
+
+## Criptografia
+
+Utilizar:
+
+NEXUM_ENCRYPTION_KEY
+
+Armazenada como segredo privado no ambiente de execução do backend.
+
+Utilizar AES-256-GCM com IV aleatório.
+
+Criptografar a credencial antes de persistir no Supabase.
+
+Descriptografar somente no backend.
+
+Nunca enviar a chave de criptografia ao frontend.
+
+Nunca expor as credenciais em respostas HTTP, console, logs ou repositório.
+
+Se a variável estiver ausente, impedir o armazenamento seguro das credenciais e informar o administrador.
+
+---
+
+# 18. ENDPOINTS NEXUM PAY
+
+## Testar conexão
+
+GET:
+
+https://nexumpay.squareweb.app/api/public/auth/validate
+
+Enviar os headers de autenticação.
+
+Verificar:
+
+- ok.
+- authenticated.
+- account.status.
+
+Considerar conectada somente quando todos os indicadores necessários forem válidos e a conta estiver ativa.
+
+## Criar Pix
+
+POST:
+
+https://nexumpay.squareweb.app/api/public/pix/create
+
+Headers:
+
+Content-Type: application/json
+
+X-API-Chat-Id: CHAT_ID
+
+X-API-Credential: CREDENCIAL_FIXA
+
+Body:
+
+{
+  "amount": 50,
+  "generatedName": "Joao Silva",
+  "generatedEmail": "joao@email.com",
+  "generatedDocument": "09115751031",
+  "webhook": {
+    "url": "https://SEU-DOMINIO/api/pix/webhook",
+    "token": "TOKEN_SECRETO"
+  },
+  "externalReference": "PEDIDO-12345"
+}
+
+Regras:
+
+- amount calculado pelo backend.
+- generatedName sem acentos, números ou símbolos.
+- generatedEmail validado.
+- generatedDocument somente números.
+- externalReference único.
+- webhook com URL pública real.
+
+Guardar a resposta real.
+
+Campos importantes:
+
+- tx_id.
+- amount.
+- qr_code_text.
+- qr_code_base64.
+- expires_in_seconds.
+- status.
+- external_reference.
+
+Não simular respostas.
+
+## Consultar Pix
+
+GET:
+
+/api/public/pix/status/{tx_id}
+
+Utilizar as credenciais armazenadas no backend.
+
+Status pagos:
+
+PAID
+APPROVED
+COMPLETED
+SUCCESS
+CONFIRMED
+COMPLETO
+
+Status pendentes:
+
+PENDING
+PENDENTE
+PROCESSING
+WAITING
+INITIATED
+CREATED
+RESERVED
+
+Status de falha:
+
+FAILED
+FAIL
+ERROR
+REJECTED
+REFUNDED
+
+Status cancelados:
+
+CANCELLED
+CANCELED
+
+Status expirado:
+
+EXPIRED
+
+Status desconhecido:
+
+UNKNOWN
+
+Somente status confirmados poderão aprovar o pedido.
+
+---
+
+# 19. WEBHOOK PIX
+
+Criar endpoint:
+
+POST /api/pix/webhook
+
+Implementar preferencialmente como Supabase Edge Function.
+
+A URL pública deverá ser compatível com a infraestrutura de produção.
+
+Receber:
+
+pix.status_changed
+
+Validar:
+
+X-Webhook-Token
+
+Exemplo de evento:
+
+{
+  "event": "pix.status_changed",
+  "tx_id": "cmm1ikzba0kcge7n9fqa0kj1e",
+  "status": "PAID",
+  "paid": true,
+  "transaction": {
+    "id": "cmm1ikzba0kcge7n9fqa0kj1e",
+    "status": "PAID",
+    "amount": 25.5,
+    "amount_paid": 25.5,
+    "amount_net": 22.95,
+    "external_reference": "pedido-12345"
+  }
+}
+
+O webhook deverá:
+
+1. Validar o token.
+2. Validar a estrutura.
+3. Verificar o evento.
+4. Localizar o pedido.
+5. Conferir tx_id.
+6. Conferir external_reference.
+7. Conferir o valor.
+8. Consultar o status oficial da Nexum quando possível.
+9. Confirmar o pagamento somente após validação.
+10. Registrar o evento.
+11. Atualizar o pedido.
+12. Registrar data de pagamento.
+13. Efetuar a baixa de estoque de forma atômica.
+14. Responder HTTP 2xx após processamento correto.
+
+Implementar idempotência obrigatória.
+
+Um mesmo evento recebido várias vezes não pode duplicar:
+
+- Baixa de estoque.
+- Faturamento.
+- Aprovação.
+- Histórico financeiro.
+
+Eventos PENDING não aprovam pedidos.
+
+Valores divergentes não aprovam pedidos.
+
+Transações não identificadas não aprovam pedidos.
+
+Eventos inválidos não devem alterar o estado financeiro.
+
+Não confiar somente no campo paid: true.
+
+---
+
+# 20. FLUXO DE PAGAMENTO
+
+O fluxo deverá ser:
+
+1. Cliente seleciona produtos.
+2. Adiciona ao carrinho.
+3. Acessa checkout.
+4. Informa seus dados.
+5. Backend consulta os produtos no Supabase.
+6. Backend valida estoque.
+7. Backend recalcula o pedido.
+8. Backend cria pedido pendente.
+9. Backend solicita Pix à Nexum.
+10. Backend salva tx_id.
+11. Frontend apresenta QR Code real.
+12. Cliente paga.
+13. Nexum envia webhook.
+14. Backend valida a notificação.
+15. Backend confirma o status oficial.
+16. Pedido é atualizado para pago.
+17. Estoque é atualizado uma única vez.
+18. Página do cliente reconhece a confirmação.
+19. Cliente acessa a página de pagamento confirmado.
+
+Página:
+
+/pagamento-confirmado?orderId=ID_DO_PEDIDO
+
+Nunca considerar a URL como prova de pagamento.
+
+---
+
+# 21. TELA DE PAGAMENTO
+
+Criar uma tela profissional contendo:
+
+- Título: Finalize seu pagamento.
+- Número do pedido.
+- Valor total.
+- QR Code verdadeiro.
+- Pix copia e cola.
+- Botão copiar código.
+- Instruções.
+- Expiração.
+- Status do pagamento.
+- Indicador de processamento.
+
+Utilizar qr_code_base64.
+
+Utilizar exatamente qr_code_text.
+
+Não gerar QR Code fictício.
+
+Enquanto estiver pendente, consultar o backend a cada cinco segundos.
+
+Interromper as consultas quando o pagamento chegar a um status final.
+
+Não consultar a Nexum diretamente pelo navegador.
+
+Se o cliente fechar o navegador, o webhook deverá continuar funcionando normalmente.
+
+---
+
+# 22. ESTOQUE
+
+Implementar estratégia segura de estoque.
+
+Ao criar o pedido:
+
+- Validar estoque.
+- Reservar quantidade quando apropriado.
+- Evitar pedidos concorrentes acima do estoque.
+
+Ao confirmar o pagamento:
+
+- Converter a reserva em baixa definitiva.
+- Garantir que a operação ocorra uma única vez.
+
+Ao expirar ou cancelar:
+
+- Liberar a reserva.
+
+Criar rotina de limpeza de reservas expiradas.
+
+Utilizar transações PostgreSQL ou funções RPC para operações atômicas.
+
+---
+
+# 23. RODAPÉ INSTITUCIONAL COMPLETO
+
+Criar rodapé profissional, organizado e responsivo.
+
+Manter a identidade visual da loja.
+
+Criar as seguintes seções:
+
+## INSTITUCIONAL
+
+- Sobre nós.
+- Como comprar.
+- Compra garantida.
+- Política de privacidade.
+- Termos de uso.
+- Trocas e devoluções.
+
+## ATENDIMENTO
+
+- Fale conosco.
+- Perguntas frequentes.
+- Acompanhar pedido.
+- Minha conta.
+- WhatsApp.
+
+## INFORMAÇÕES
+
+- Entrega e frete.
+- Formas de pagamento.
+- Segurança.
+- Prazo de entrega.
+- Política de reembolso.
+
+Todos os links devem ser clicáveis e abrir suas respectivas páginas reais.
+
+Não utilizar links vazios.
+
+Não deixar links com href="#" sem funcionalidade.
+
+Não incluir acesso ao painel administrativo no rodapé.
+
+Criar conteúdo institucional em português brasileiro.
+
+Não prometer garantias, certificações ou condições comerciais que não tenham sido efetivamente configuradas.
+
+A página Compra Garantida deverá apresentar informações transparentes sobre o processo de compra, pagamento, atendimento e direitos do consumidor.
+
+Incluir:
+
+- Informações comerciais.
+- Redes sociais.
+- E-mail.
+- WhatsApp.
+- CNPJ, se cadastrado.
+- Direitos reservados.
+
+---
+
+# 24. FAVICON E IDENTIDADE DIGITAL
+
+Criar favicon exclusivo da Casa & Beleza Express.
+
+Utilizar identidade coerente com o logotipo.
+
+Entregar:
+
+- favicon.ico.
+- favicon.svg.
+- apple-touch-icon.png.
+
+Criar também imagem institucional de compartilhamento.
+
+Não utilizar ícones genéricos como identidade definitiva da marca.
+
+---
+
+# 25. OPEN GRAPH COMPLETO
+
+Implementar metadados de compartilhamento.
+
+Configurar:
+
+og:title
+og:description
+og:image
+og:image:width
+og:image:height
+og:image:alt
+og:url
+og:type
+og:site_name
+og:locale
+
+Utilizar pt_BR.
+
+Configurar Twitter Cards:
+
+twitter:card
+twitter:title
+twitter:description
+twitter:image
+
+Imagem padrão:
+
+1200 × 630 pixels.
+
+Criar Open Graph específico para cada produto.
+
+Ao compartilhar um produto, apresentar:
+
+- Nome do produto.
+- Descrição.
+- Imagem principal.
+- Preço, quando adequado.
+- URL canônica.
+
+**OBRIGATÓRIO:**
+
+Garantir que WhatsApp, Facebook e outros robôs consigam ler os metadados sem depender da execução de JavaScript no navegador.
+
+Implementar geração de HTML com metadados no servidor, renderização ou prerenderização compatível.
+
+Não considerar suficiente alterar tags somente no React após a página carregar.
+
+Criar:
+
+- robots.txt.
+- sitemap.xml.
+- URLs canônicas.
+- JSON-LD.
+- Dados estruturados Organization.
+- Dados estruturados WebSite.
+- Dados estruturados Product.
+- Dados estruturados Offer.
+
+Não incluir páginas privadas no sitemap.
+
+---
+
+# 26. AVALIAÇÕES
+
+Criar sistema de avaliações.
+
+Permitir:
+
+- Nota de 1 a 5.
+- Comentário.
+- Nome do cliente.
+- Data.
+
+Novas avaliações deverão começar pendentes.
+
+Somente administradores poderão aprovar ou rejeitar.
+
+Somente avaliações aprovadas serão exibidas publicamente.
+
+Não criar avaliações falsas.
+
+---
+
+# 27. CUPONS E PROMOÇÕES
+
+Criar gerenciamento de cupons.
+
+Campos:
+
+- Código.
+- Tipo de desconto.
+- Valor.
+- Valor mínimo.
+- Limite de utilização.
+- Data inicial.
+- Data final.
+- Status.
+
+Permitir descontos percentuais e fixos.
+
+Validar tudo no backend.
+
+O cliente não poderá manipular o valor do desconto.
+
+---
+
+# 28. WHATSAPP E ATENDIMENTO
+
+Implementar botão flutuante de WhatsApp.
+
+O número deverá ser configurável no painel.
+
+Permitir mensagem inicial personalizada.
+
+Implementar responsividade.
+
+Criar formulário de contato com:
+
+- Nome.
+- E-mail.
+- Telefone.
+- Assunto.
+- Mensagem.
+
+Armazenar mensagens no Supabase.
+
+Somente administradores poderão consultar a lista de mensagens.
+
+Adicionar proteção contra spam e abuso.
+
+---
+
+# 29. PRIVACIDADE E LGPD
+
+Implementar consentimento de cookies.
+
+Criar opções:
+
+- Aceitar.
+- Recusar.
+- Personalizar.
+
+Não executar ferramentas não essenciais antes do consentimento aplicável.
+
+Criar política de privacidade e termos.
+
+Proteger dados pessoais.
+
+Permitir que o cliente consulte suas informações e solicite atendimento relacionado aos seus dados.
+
+Não armazenar CPF ou informações sensíveis em logs desnecessários.
+
+---
+
+# 30. SEGURANÇA AVANÇADA
+
+Implementar:
+
+- RLS.
+- Autorização administrativa.
+- Validação backend.
+- Sanitização.
+- Rate limiting.
+- Proteção contra XSS.
+- Proteção contra SQL injection.
+- Proteção de credenciais.
+- Validação de webhooks.
+- Controle de sessão.
+- Logs seguros.
+- Proteção de pedidos.
+- Proteção contra alteração de valores.
+
+Testar explicitamente:
+
+1. Cliente tentando se tornar administrador.
+2. Cliente tentando alterar preço.
+3. Cliente tentando alterar estoque.
+4. Cliente tentando aprovar pagamento.
+5. Cliente tentando acessar pedido de outra pessoa.
+6. Cliente tentando consultar credenciais.
+7. Visitante tentando cadastrar produto.
+8. Cliente tentando alterar configurações.
+9. Webhook com token inválido.
+10. Webhook duplicado.
+11. Pagamento com valor divergente.
+12. Pedido com produtos inativos.
+
+Todos deverão ser bloqueados.
+
+Não confiar em verificações exclusivamente no frontend.
+
+---
+
+# 31. ARQUITETURA VERCEL E SUPABASE
+
+O projeto deverá ser compatível com Vercel.
+
+Utilizar:
+
+- Vite para frontend.
+- Vercel para hospedagem do frontend.
+- Supabase para banco, autenticação e armazenamento.
+- Supabase Edge Functions para operações protegidas e integração Nexum.
+
+Não iniciar um servidor Express persistente dentro de uma função serverless.
+
+Se houver necessidade de rotas adicionais na Vercel, implementá-las no formato correto de funções serverless.
+
+Configurar rewrites para rotas da aplicação.
+
+Garantir que o webhook tenha endereço público estável e acessível.
+
+Criar arquivo de configuração adequado.
+
+---
+
+# 32. VARIÁVEIS DE AMBIENTE
+
+Criar .env.example sem segredos.
+
+Documentar:
+
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+APP_URL=
+
+Segredos privados:
+
+SUPABASE_SERVICE_ROLE_KEY=
+NEXUM_ENCRYPTION_KEY=
+
+As credenciais Nexum serão cadastradas pelo painel.
+
+Não inserir credenciais reais no repositório.
+
+Não expor variáveis privadas ao frontend.
+
+Documentar onde cada variável deve ser configurada.
+
+---
+
+# 33. DOCUMENTAÇÃO DE INSTALAÇÃO
+
+Criar README.md em português.
+
+Explicar:
+
+1. Instalação.
+2. Dependências.
+3. Configuração Supabase.
+4. Criação do projeto.
+5. Execução das migrations.
+6. Configuração RLS.
+7. Criação dos buckets.
+8. Deploy das Edge Functions.
+9. Configuração da Nexum.
+10. Cadastro do primeiro administrador.
+11. Configuração Vercel.
+12. Configuração do domínio.
+13. Configuração do webhook.
+14. Testes.
+15. Publicação.
+
+Criar documentação específica da integração Nexum Pay.
+
+---
+
+# 34. TESTES OBRIGATÓRIOS
+
+Executar testes automatizados e funcionais.
+
+Testar:
+
+- Inicialização.
+- Login.
+- Cadastro.
+- Recuperação de senha.
+- Autorização administrativa.
+- Bloqueio de clientes.
+- Cadastro de produtos.
+- Seis URLs de imagens.
+- Upload de imagens.
+- Categorias.
+- Três banners.
+- Carrinho.
+- Checkout.
+- Frete.
+- Cupons.
+- Criação de pedidos.
+- Estoque.
+- Configuração Nexum.
+- Teste de conexão.
+- Geração Pix.
+- QR Code.
+- Pix copia e cola.
+- Consulta de status.
+- Webhook.
+- Token inválido.
+- Evento duplicado.
+- Valor divergente.
+- Confirmação de pagamento.
+- Atualização de estoque.
+- Página de confirmação.
+- Rodapé.
+- Páginas institucionais.
+- Favicon.
+- Open Graph.
+- SEO.
+- Responsividade.
+- RLS.
+
+Executar:
+
+npm install
+npm run lint
+npm run build
+
+Corrigir todos os erros.
+
+Não declarar testes aprovados sem executá-los.
+
+Não afirmar que a Nexum está conectada enquanto as credenciais reais não tiverem sido configuradas e testadas.
+
+---
+
+# 35. ENTREGA FINAL
+
+O resultado deverá conter:
+
+- Loja completa.
+- Identidade visual.
+- Cabeçalho.
+- Página inicial.
+- Catálogo.
+- Categorias.
+- Produtos.
+- Seis campos individuais de imagens.
+- Galeria de produtos.
+- Três banners independentes.
+- Carrinho.
+- Checkout.
+- Pix real.
+- QR Code.
+- Pix copia e cola.
+- Webhook.
+- Consulta automática.
+- Confirmação de pagamento.
+- Controle de estoque.
+- Painel administrativo privado.
+- Cadastro de administradores.
+- Dashboard.
+- Produtos.
+- Categorias.
+- Pedidos.
+- Clientes.
+- Avaliações.
+- Cupons.
+- Configurações.
+- Nexum Pay.
+- Supabase.
+- Storage.
+- RLS.
+- Rodapé institucional.
+- Páginas institucionais.
+- Favicon.
+- Open Graph.
+- SEO.
+- WhatsApp.
+- Responsividade.
+- Documentação.
+- Preparação para GitHub e Vercel.
+
+---
+
+# 36. INSTRUÇÃO FINAL — NÃO INTERROMPER O DESENVOLVIMENTO
+
+Desenvolva a aplicação de maneira completa e organizada.
+
+Não pare na criação da página inicial.
+
+Não entregue apenas protótipo.
+
+Não deixe funcionalidades essenciais simuladas.
+
+Não substitua integrações reais por respostas fictícias.
+
+Não crie botões sem funcionalidade.
+
+Não deixe páginas importantes vazias.
+
+Não remova funcionalidades importantes para simplificar o desenvolvimento.
+
+Se alguma funcionalidade depender de credenciais externas, implemente toda a estrutura e indique a configuração pendente.
+
+Priorize a integridade dos dados, segurança financeira e confiabilidade dos pedidos.
+
+Trabalhe por etapas internamente, mas continue até concluir todas as partes possíveis.
+
+Ao finalizar, apresente:
+
+1. Resumo do que foi implementado.
+2. Estrutura do projeto.
+3. Tabelas criadas.
+4. Edge Functions criadas.
+5. Integrações implementadas.
+6. Testes efetivamente executados.
+7. Erros encontrados e corrigidos.
+8. Configurações externas pendentes.
+9. Instruções de publicação.
+
+**RESULTADO FINAL ESPERADO:**
+
+Uma loja virtual Casa & Beleza Express de padrão profissional, com identidade visual elegante, experiência excelente em computadores e celulares, painel administrativo privado, banco Supabase, cadastro de produtos com seis imagens, três banners independentes, páginas institucionais completas, Open Graph funcional e integração real de pagamentos Pix pela Nexum Pay.
+
+O sistema deverá estar preparado para operação comercial verdadeira, sem funcionalidades fictícias e sem comprometer a segurança dos clientes ou da administração.

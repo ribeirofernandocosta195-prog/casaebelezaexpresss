@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --color-primary: #E6007A;
+    --color-primary-dark: #D0006E;
+    --color-primary-light: #FFF0F6;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #27272A;
+    background-color: #FCFCFD;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #E4E4E7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E6007A;
+}
+
+/* Elegant glass card */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 0, 122, 0.08);
+}

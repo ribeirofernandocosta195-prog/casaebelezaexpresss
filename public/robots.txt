@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /minha-conta
+Disallow: /checkout
+Disallow: /pagamento/
+
+Sitemap: https://casabelezexpress.com.br/sitemap.xml
